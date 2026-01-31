@@ -1,34 +1,35 @@
-// Update this page (the content is just a fallback if you fail to update the page)
-
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { GlassNavigation } from "@/components/GlassNavigation";
+import { LightLeakWrapper } from "@/components/LightLeakWrapper";
+import { StructuralHero } from "@/components/StructuralHero";
+import { ManifestoGrid } from "@/components/ManifestoGrid";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-background p-4">
-      {/* This is a placeholder page. 
-        It demonstrates how to use "shadcn-ui" components and Tailwind CSS.
-        The AI interprets these imports as available UI primitives.
-      */}
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle className="text-center">Welcome to Your Project</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <p className="text-center text-muted-foreground">
-            Start building your application by editing <code className="bg-muted px-1 rounded">src/pages/Index.tsx</code>
-          </p>
-          
-          <div className="space-y-2">
-            <Input placeholder="Enter your project name..." />
-            <Button className="w-full">
-              Create Something Amazing
-            </Button>
+    <LightLeakWrapper>
+      <div className="min-h-screen bg-background text-foreground font-sans selection:bg-gray-300 selection:text-black">
+        <GlassNavigation />
+        <main>
+          <StructuralHero />
+          <ManifestoGrid />
+        </main>
+        
+        <footer className="py-12 px-6 border-t border-foreground/10 flex flex-col md:flex-row justify-between items-start md:items-end">
+          <div className="flex flex-col space-y-4">
+            <h4 className="text-2xl font-bold tracking-tighter uppercase">Glasshouse</h4>
+            <p className="text-sm text-muted-foreground max-w-xs">
+              Curated productivity for the modern architect of thought.
+            </p>
           </div>
-        </CardContent>
-      </Card>
-    </div>
+          <div className="mt-8 md:mt-0 flex gap-8">
+             {['Instagram', 'Twitter', 'LinkedIn'].map(social => (
+                <a key={social} href="#" className="text-xs uppercase tracking-widest hover:text-black hover:underline underline-offset-4 decoration-1">
+                    {social}
+                </a>
+             ))}
+          </div>
+        </footer>
+      </div>
+    </LightLeakWrapper>
   );
 };
 
